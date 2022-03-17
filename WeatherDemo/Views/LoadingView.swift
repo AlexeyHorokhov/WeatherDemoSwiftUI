@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Small custom loading view
 struct LoadingView: View {
     var body: some View {
         ProgressView()

@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 
+/// Main view model of application. Contains refresh method. Can be used for "pull to refresh" feature.
+/// Also method include custom Error handling
 final class WeatherViewModel: ObservableObject {
     
     private var cancellableSet: Set<AnyCancellable> = []
@@ -20,6 +22,7 @@ final class WeatherViewModel: ObservableObject {
         self.weatherService = weatherService
     }
     
+    // Self explanatory method to get DetailedCityModel with weather details. Also include alphabetic sorting.
     public func refresh() {
         weatherService.fetchNeededCities()
             .receive(on: RunLoop.main)

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// This extension was written to handle url construction. Can be rewriten to URLRequests.
 extension URL {
     
     enum NeededURLs: String {

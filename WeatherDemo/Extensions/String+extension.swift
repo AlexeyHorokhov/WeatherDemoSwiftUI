@@ -14,7 +14,7 @@ enum DateFormatters: String {
 }
 
 extension String {
-    
+    // Simple Date convertation with two different formatters, which can be extended.
     func toDateWith(format: DateFormatters) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current

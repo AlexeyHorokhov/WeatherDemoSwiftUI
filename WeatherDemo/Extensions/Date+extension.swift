@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// This extension need for getting tomorrow day only.
 extension Date {
     
     static var tomorrow: Date? { return Date().dayAfter }

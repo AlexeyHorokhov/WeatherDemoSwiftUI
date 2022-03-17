@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Main view with blur background, tabView with paging style and loading overlay till data will be loaded.
 struct ContentView: View {
     
     @ObservedObject var weatherViewModel: WeatherViewModel

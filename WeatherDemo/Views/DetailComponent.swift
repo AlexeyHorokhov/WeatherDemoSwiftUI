@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// View component for detailed weather fields with icons
 struct DetailComponent: View {
     var logo: String
     var name: String

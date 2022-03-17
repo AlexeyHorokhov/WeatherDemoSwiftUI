@@ -22,6 +22,7 @@ enum APIError: Error, LocalizedError {
     }
 }
 
+/// Main service to load, chain and zip data in one Publisher. Used with generics to decode data. Primitive Error handling included.
 struct WeatherService {
     
     func fetchNeededCities() -> AnyPublisher<[DetailedCityModel], APIError> {

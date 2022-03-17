@@ -27,6 +27,7 @@ struct DetailedWeatherView: View {
             }
             .ignoresSafeArea()
             .blur(radius: 30)
+            // Using scroll view here in order to scroll content in horizontal mode.
             ScrollView(.vertical, showsIndicators: false) {
                 
                 ZStack(alignment: .bottomTrailing) {

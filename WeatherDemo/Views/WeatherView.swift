@@ -7,12 +7,16 @@
 
 import SwiftUI
 
+/// Preview for
 struct WeatherView: View {
     
     var weatherModel: DetailedCityModel
     @State var showModal = false
     
     var body: some View {
+        // Here we need to check do we have tomorrow weather model at all.
+        // Without it pointless to show something on UI
+        // Still can be updated with mocked data
         if let model: ConsolidatedWeatherModel = weatherModel.getTomorrowModel() {
             let temp = model.currentTemperature
             let date = model.applicableDate.toDateWith(format: .short).formatted(.dateTime.month(.wide).day())
@@ -53,6 +57,7 @@ struct WeatherView: View {
                         .padding()
                 })
             }
+            // Here we show weather details in modal window on full screen
             .fullScreenCover(isPresented: $showModal) {
                 DetailedWeatherView(weatherModel: weatherModel, tomorrowModel: model)
             }

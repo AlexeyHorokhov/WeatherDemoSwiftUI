@@ -7,6 +7,38 @@
 
 import Foundation
 
+/// This model is our main source of data in app. We can get json for this model via https://www.metaweather.com/api/location/CityID. It roughly will look like this.
+/// {
+/// "consolidated_weather": [
+///    {
+///        "id": 6209956119314432,
+///        "weather_state_name": "Heavy Rain",
+///        "weather_state_abbr": "hr",
+///        "wind_direction_compass": "ESE",
+///        "created": "2022-03-16T12:59:02.379954Z",
+///        "applicable_date": "2022-03-16",
+///        "min_temp": 7.29,
+///        "max_temp": 13.205,
+///        "the_temp": 10.925,
+///        "wind_speed": 4.95896139729049,
+///        "wind_direction": 105.57223838301438,
+///        "air_pressure": 1017.5,
+///        "humidity": 87,
+///        "visibility": 6.357559353376282,
+///        "predictability": 77
+///    },
+///    ...
+/// ],
+/// "time": "2022-03-16T13:20:34.041552Z",
+/// "sun_rise": "2022-03-16T06:12:34.433822Z",
+/// "sun_set": "2022-03-16T18:06:41.703136Z",
+/// "timezone_name": "LMT",
+/// "title": "London",
+/// "location_type": "City",
+/// "woeid": 44418,
+/// "latt_long": "51.506321,-0.12714",
+/// "timezone": "Europe/London"
+/// }
 struct DetailedCityModel: Codable, Hashable {
     
     let cityId: Int
@@ -46,6 +78,7 @@ struct DetailedCityModel: Codable, Hashable {
     }
 }
 
+/// This model is part of our main model DetailedCityModel. It mostly contains detailed waether information for sprecific day
 struct ConsolidatedWeatherModel: Codable, Identifiable {
     
     let id, humidity: Int
@@ -65,6 +98,7 @@ struct ConsolidatedWeatherModel: Codable, Identifiable {
         case airPressure = "air_pressure"
     }
     
+    // This func returns completed URL for weather icon
     func iconURL() -> URL? {
         return URL.urlForWeatherIconWith(iconId: weatherStateIcon)
     }

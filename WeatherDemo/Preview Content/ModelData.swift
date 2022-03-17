@@ -9,6 +9,7 @@ import Foundation
 
 var previewWeather: DetailedCityModel = load("DummyWeatherData.json")
 
+/// This global func need to convert mocked json into our weather model
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
     

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// List of cities, that were required for this app, can be extended anytime, as implementation was done generic
 enum NeededCities: String, CaseIterable {
     
     case gothenburg
