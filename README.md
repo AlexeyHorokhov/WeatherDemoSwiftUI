@@ -3,6 +3,7 @@ It's demo application written with SwiftUI and Combine
 
 Known issues:
 - TabView pager can have wrong position after display orientation change
+- Trailing icons on WeatherDetails screen not aligned
 
 What can be improved:
 - URL builder should be rewritten on URLRequests with params to avoid problems with spaces in cities names
