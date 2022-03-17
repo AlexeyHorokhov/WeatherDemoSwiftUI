@@ -43,7 +43,7 @@ struct WeatherService {
             .eraseToAnyPublisher()
     }
     
-    private func fetch(city: NeededCities) -> AnyPublisher<CityModel, APIError> {
+    func fetch(city: NeededCities) -> AnyPublisher<CityModel, APIError> {
         guard let url = URL.urlFor(city: city) else { return Empty().eraseToAnyPublisher() }
         
         let publisher: AnyPublisher<[CityModel], APIError> = fetch(url: url)
@@ -52,7 +52,7 @@ struct WeatherService {
             .eraseToAnyPublisher()
     }
     
-    private func fetchWeather(forCityId id: Int) -> AnyPublisher<DetailedCityModel, APIError> {
+    func fetchWeather(forCityId id: Int) -> AnyPublisher<DetailedCityModel, APIError> {
         guard let url = URL.urlForWeatherWith(cityId: id) else { return Empty().eraseToAnyPublisher() }
         
         return fetch(url: url)
